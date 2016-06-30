@@ -58,8 +58,8 @@ class HangpersonApp < Sinatra::Base
     ### YOUR CODE HERE ###
     action = @game.check_win_or_lose
     case action
-    when :win then erb :win
-    when :lose then erb :lose
+    when :win then redirect '/win'
+    when :lose then redirect '/lose'
     else erb :show # You may change/remove this line
     end
   end
