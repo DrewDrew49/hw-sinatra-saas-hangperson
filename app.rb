@@ -66,12 +66,22 @@ class HangpersonApp < Sinatra::Base
   
   get '/win' do
     ### YOUR CODE HERE ###
-    erb :win # You may change/remove this line
+    puts "game #{@game}"
+     action = @game.check_win_or_lose
+      case action 
+      when :win then erb :win # You may change/remove this line
+      else redirect '/show'
+      end
+    # You may change/remove this line
   end
   
   get '/lose' do
     ### YOUR CODE HERE ###
-    erb :lose # You may change/remove this line
+    action = @game.check_win_or_lose
+      case action 
+      when :lose then erb :lose # You may change/remove this line
+      else redirect '/show'
+      end
   end
   
 end
